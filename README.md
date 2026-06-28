@@ -1,112 +1,115 @@
-# Enterprise Work Management System (EWMS)
+# CampusFlow
 
-## Project Overview
+> A modern Student Management Platform built using enterprise software engineering practices.
 
-Enterprise Work Management System (EWMS) is a desktop-first work management application being built as a long-term learning project following real-world software engineering practices.
+## Overview
 
-The goal is not only to build the application but also to simulate an enterprise software development lifecycle including Agile, Git workflows, documentation, code reviews, API-first development, Electron, and Microservices.
+CampusFlow is a modern Student Management Platform designed for educational institutions to efficiently manage students, teachers, classes, attendance, and school administration through a centralized system.
 
----
-
-## Objectives
-
-* Learn React with TypeScript
-* Build an enterprise-grade application
-* Follow professional Git workflows
-* Practice Agile development
-* Learn Electron Desktop Development
-* Learn API First Design
-* Learn Microservices Architecture
+The project follows an API-first architecture and is being developed with scalability, maintainability, and clean architecture principles in mind.
 
 ---
 
-## Current Status
+## Product Vision
 
-**Sprint:** Sprint 1
+CampusFlow helps educational institutions reduce manual administrative work by providing a centralized platform for managing day-to-day school operations.
 
-**Current Story:** EWMS-002 – Repository Standards & Documentation
-
-Project Status:
-
-🚧 Under Development
+Our goal is to build a production-ready application that demonstrates real-world software engineering practices while solving genuine business problems for schools.
 
 ---
 
 ## Technology Stack
 
-### Current
+### Frontend
 
-* React
-* TypeScript
-* Vite
+- React
+- TypeScript
+- Vite
+- Electron _(Planned)_
 
-### Planned
+### Backend _(Planned)_
 
-* Electron
-* Node.js
-* Express.js
-* PostgreSQL
-* OpenAPI (Swagger)
-* Docker
-* Microservices
+- ASP.NET Core Web API
+- PostgreSQL
+- Entity Framework Core
+
+### Architecture
+
+- API-First Design
+- Modular Monolith (Version 1)
+- Microservices (Future)
+- Clean Architecture
+- Repository Pattern
+- SOLID Principles
+
+---
+
+## Version 1 Modules
+
+- Authentication
+- Dashboard
+- Student Management
+- Teacher Management
+- Class Management
+- Attendance
+- Reports
+- Settings
+
+---
+
+## Development Workflow
+
+- Git Flow
+- Feature Branch Strategy
+- Pull Requests
+- Code Reviews
+- ESLint
+- Prettier
+- EditorConfig
+
+---
+
+## Project Status
+
+🚧 Active Development
+
+Current Sprint: **Sprint 2 – Product Foundation**
+
+---
+
+## Roadmap
+
+### Version 1
+
+- Student Management
+- Teacher Management
+- Attendance
+- Reports
+- Dashboard
+
+### Future Versions
+
+- Fee Management
+- Parent Portal
+- Student Portal
+- Library
+- Transport
+- AI Insights
 
 ---
 
 ## Repository Structure
 
 ```text
-enterprise-work-management/
+CampusFlow
 │
 ├── client/
 ├── docs/
-├── .github/
 └── README.md
 ```
 
 ---
 
-## Git Workflow
+## License
 
-We follow a feature branch workflow.
-
-```
-main
-   │
-develop
-   │
-feature/*
-```
-
-No development is performed directly on the `main` branch.
-
----
-
-## Getting Started
-
-```bash
-git clone <repository-url>
-
-cd enterprise-work-management/client
-
-npm install
-
-npm run dev
-```
-
----
-
-## Roadmap
-
-* Sprint 1 – Project Foundation
-* Sprint 2 – React Fundamentals
-* Sprint 3 – Application Layout
-* Sprint 4 – State Management
-* Sprint 5 – Backend Integration
-* Sprint 6 – Electron
-* Sprint 7 – Microservices
-
----
-
-## Contributors
-
-* Abhishek Upadhyaya
+This project is being developed as a learning and portfolio project following enterprise software engineering practices.
