@@ -1,115 +1,123 @@
-# CampusFlow
-
-> A modern Student Management Platform built using enterprise software engineering practices.
+# CampusFlow Documentation
 
 ## Overview
 
-CampusFlow is a modern Student Management Platform designed for educational institutions to efficiently manage students, teachers, classes, attendance, and school administration through a centralized system.
+Welcome to the official documentation for **CampusFlow**.
 
-The project follows an API-first architecture and is being developed with scalability, maintainability, and clean architecture principles in mind.
+CampusFlow is an Enterprise School Management Platform being developed following real-world software engineering practices.
 
----
+The goal of this project is not only to build software but also to learn every phase of modern product development including:
 
-## Product Vision
+- Product Management
+- Business Analysis
+- UI/UX
+- Frontend Development
+- Backend Development
+- API First Design
+- Microservices Architecture
+- Software Architecture
+- DevOps
+- Git Workflow
+- Code Review
+- Documentation
+- Deployment
+- Product Ownership
 
-CampusFlow helps educational institutions reduce manual administrative work by providing a centralized platform for managing day-to-day school operations.
-
-Our goal is to build a production-ready application that demonstrates real-world software engineering practices while solving genuine business problems for schools.
-
----
-
-## Technology Stack
-
-### Frontend
-
-- React
-- TypeScript
-- Vite
-- Electron _(Planned)_
-
-### Backend _(Planned)_
-
-- ASP.NET Core Web API
-- PostgreSQL
-- Entity Framework Core
-
-### Architecture
-
-- API-First Design
-- Modular Monolith (Version 1)
-- Microservices (Future)
-- Clean Architecture
-- Repository Pattern
-- SOLID Principles
+This repository is organized exactly like a professional engineering team's repository.
 
 ---
 
-## Version 1 Modules
+# Repository Structure
 
-- Authentication
-- Dashboard
-- Student Management
-- Teacher Management
-- Class Management
-- Attendance
-- Reports
-- Settings
-
----
-
-## Development Workflow
-
-- Git Flow
-- Feature Branch Strategy
-- Pull Requests
-- Code Reviews
-- ESLint
-- Prettier
-- EditorConfig
-
----
-
-## Project Status
-
-🚧 Active Development
-
-Current Sprint: **Sprint 2 – Product Foundation**
-
----
-
-## Roadmap
-
-### Version 1
-
-- Student Management
-- Teacher Management
-- Attendance
-- Reports
-- Dashboard
-
-### Future Versions
-
-- Fee Management
-- Parent Portal
-- Student Portal
-- Library
-- Transport
-- AI Insights
-
----
-
-## Repository Structure
-
-```text
-CampusFlow
+```
+docs/
 │
-├── client/
-├── docs/
-└── README.md
+├── README.md
+├── architecture/
+├── roadmap/
+├── standards/
+├── stories/
+└── meeting-notes/
 ```
 
 ---
 
-## License
+# Development Philosophy
 
-This project is being developed as a learning and portfolio project following enterprise software engineering practices.
+CampusFlow follows these engineering principles:
+
+- API First Development
+- Component Driven UI
+- Design System First
+- Feature Based Architecture
+- Clean Code
+- SOLID Principles
+- Single Source of Truth
+- Documentation First
+- Incremental Product Enhancement
+
+---
+
+# Product Modules
+
+The platform will gradually include:
+
+- Dashboard
+- Student Management
+- Teacher Management
+- Attendance
+- Fee Management
+- Inventory
+- Administration
+- Reports
+- Authentication
+- Notification Center
+- Settings
+
+---
+
+# Technology Stack
+
+## Frontend
+
+- React
+- TypeScript
+- Vite
+- Electron
+- Tailwind CSS
+- Design System (In-house)
+
+## Backend
+
+- .NET Web API
+- API First Design
+- Microservices
+- SQL Server
+
+---
+
+# Learning Objective
+
+This repository is intentionally developed as if it were a real enterprise software product.
+
+Every decision, architecture change, enhancement, sprint and feature will be documented.
+
+The objective is to learn not only programming, but complete Software Engineering.
+
+---
+
+# Documentation Index
+
+| Folder        | Purpose                                     |
+| ------------- | ------------------------------------------- |
+| architecture  | High level architecture and ADRs            |
+| roadmap       | Product planning                            |
+| standards     | Engineering standards                       |
+| stories       | Business stories and implementation details |
+| meeting-notes | Sprint notes and discussions                |
+
+---
+
+Welcome to CampusFlow.
+
+Let's build a product—not just an application.
