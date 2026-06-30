@@ -1,5 +1,6 @@
-import { classNames } from '../../../utils/classNames';
 import styles from './Navigation.module.css';
+
+import NavigationItem from './NavigationItem';
 
 import type { NavigationProps } from './Navigation.types';
 
@@ -12,20 +13,21 @@ const Navigation = ({
   return (
     <nav>
       <ul
-        className={classNames(
-          styles.menu,
-          direction === 'horizontal' ? styles.horizontal : styles.vertical
-        )}
+        className={`
+          ${styles.menu}
+          ${direction === 'horizontal' ? styles.horizontal : styles.vertical}
+        `}
       >
-        {items.map((item) => (
-          <li
-            key={item.id}
-            className={`${styles.menuItem} ${activeItemId === item.id ? styles.active : ''}`}
-            onClick={() => onItemClick?.(item)}
-          >
-            {item.label}
-          </li>
-        ))}
+        {items
+          .filter((item) => item.isVisible !== false)
+          .map((item) => (
+            <NavigationItem
+              key={item.id}
+              item={item}
+              isActive={activeItemId === item.id}
+              onClick={onItemClick}
+            />
+          ))}
       </ul>
     </nav>
   );

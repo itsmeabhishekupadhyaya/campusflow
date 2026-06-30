@@ -77,6 +77,25 @@ Business modules must consume UI components instead of creating duplicate implem
 
 ---
 
+## UI Icon Library
+
+CampusFlow uses **Lucide React** as the standard icon library for all UI components.
+
+### Why Lucide?
+
+- Lightweight
+- Tree-shakeable
+- TypeScript support
+- React-first API
+- Consistent icon design
+- Excellent community support
+
+### Installation
+
+```bash
+npm install lucide-react
+```
+
 # Feature Layer
 
 Each business module is developed independently.
@@ -84,6 +103,7 @@ Each business module is developed independently.
 Example:
 
 ```
+
 features
 │
 ├── students
@@ -91,6 +111,7 @@ features
 ├── attendance
 ├── fees
 └── administration
+
 ```
 
 Every feature owns its:
@@ -143,3 +164,7 @@ This separation follows the Single Responsibility Principle and enables reuse ac
 # Long Term Goal
 
 CampusFlow should evolve into an Enterprise SaaS Platform with reusable architecture capable of supporting multiple schools.
+
+```
+
+```

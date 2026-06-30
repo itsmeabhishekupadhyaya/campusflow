@@ -1,11 +1,11 @@
-import type { MenuItem } from '../../../navigation';
+import type { NavigationItem } from '../../../config';
 
 export interface NavigationProps {
-  items: MenuItem[];
+  items: NavigationItem[];
 
   direction?: 'vertical' | 'horizontal';
 
   activeItemId?: string;
 
-  onItemClick?: (item: MenuItem) => void;
+  onItemClick?: (item: NavigationItem) => void;
 }
