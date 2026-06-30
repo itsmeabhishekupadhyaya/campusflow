@@ -1,14 +1,13 @@
+import { AppLogo } from '../../Branding/AppLogo';
 import styles from './Header.module.css';
 
 import type { HeaderProps } from './Header.types';
 
-const Header = ({ appName, user, leftContent, rightContent }: HeaderProps) => {
+const Header = ({ user, leftContent, rightContent }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.left}>
-        <span className={styles.logo}>🎓</span>
-
-        <span className={styles.appName}>{appName}</span>
+        <AppLogo />
 
         {leftContent}
       </div>
