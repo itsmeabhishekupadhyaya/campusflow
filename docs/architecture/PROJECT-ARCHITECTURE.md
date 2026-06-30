@@ -125,6 +125,21 @@ No business logic should exist inside UI components.
 
 ---
 
+## Navigation Architecture
+
+CampusFlow separates application navigation from UI rendering.
+
+Application Configuration:
+src/navigation
+
+Reusable UI:
+src/ui/components/Navigation
+
+Layout Components:
+src/ui/components/Layout
+
+This separation follows the Single Responsibility Principle and enables reuse across multiple layouts.
+
 # Long Term Goal
 
 CampusFlow should evolve into an Enterprise SaaS Platform with reusable architecture capable of supporting multiple schools.

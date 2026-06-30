@@ -10,12 +10,23 @@ Priority: High
 
 Status: In Progress (40%)
 
-Completed:
+## Completed
 
-- Application Layout created
-- Placeholder Header integrated
-- Placeholder Sidebar integrated
-- AppLayout connected with App.tsx
+- Created AppLayout
+- Created Sidebar
+- Extracted reusable Navigation component
+- Moved application navigation configuration to `src/navigation`
+- Sidebar now composes Navigation instead of rendering menu items directly
+
+## Outcome
+
+The UI framework now separates:
+
+- Layout
+- Navigation rendering
+- Application navigation configuration
+
+This allows the same Navigation component to be reused by Sidebar, Header, Settings pages, Profile pages, and future modules.
 
 Pending:
 
