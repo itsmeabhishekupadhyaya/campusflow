@@ -1,38 +1,50 @@
 .button {
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-weight: 600;
+  font-weight: var(--font-weight-medium);
   transition: all 0.2s ease;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
 }
 
 /* Variants */
 
 .primary {
-  background: #4f46e5;
+  background: var(--color-primary);
   color: white;
 }
 
 .primary:hover {
-  background: #4338ca;
+  background: var(--color-primary-hover);
 }
 
 .secondary {
-  background: white;
-  border: 1px solid #e2e8f0;
-  color: #1e293b;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
 }
 
 /* Sizes */
 
 .sm {
-  padding: 8px 16px;
+  padding: var(--space-sm) var(--space-md);
 }
 
 .md {
-  padding: 10px 20px;
+  padding: 12px var(--space-lg);
 }
 
 .lg {
-  padding: 14px 28px;
+  padding: var(--space-md) var(--space-xl);
 }
