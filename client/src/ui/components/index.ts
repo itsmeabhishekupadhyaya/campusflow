@@ -10,3 +10,4 @@ export * from './Form/SearchInput';
 export * from './Layout/AppLayout';
 export * from './Layout/Header';
 export * from './Layout/Sidebar';
+export * from './Branding/AppLogo';

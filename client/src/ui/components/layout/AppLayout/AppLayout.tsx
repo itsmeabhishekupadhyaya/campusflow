@@ -10,7 +10,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   const currentUser: HeaderUser = mockCurrentUser;
   return (
     <div className={styles.layout}>
-      <Header appName="CampusFlow" user={currentUser} />
+      <Header user={currentUser} />
 
       <div className={styles.body}>
         <Sidebar />

@@ -1,0 +1,28 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.sm {
+  font-size: 18px;
+}
+
+.md {
+  font-size: 22px;
+}
+
+.lg {
+  font-size: 30px;
+}
