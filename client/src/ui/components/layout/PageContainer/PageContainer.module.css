@@ -1,5 +1,7 @@
 .container {
-  width: 100%;
-  padding: var(--space-6);
+  min-height: 100vh;
+
+  padding: var(--space-lg);
+
   background: var(--color-background);
 }
