@@ -4,4 +4,5 @@ export const mockCurrentUser: HeaderUser = {
   id: '1',
   fullName: 'Abhishek Upadhyaya',
   role: 'Administrator',
+  initials: 'AU',
 };
