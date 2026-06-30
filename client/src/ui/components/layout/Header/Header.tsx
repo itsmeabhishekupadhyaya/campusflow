@@ -1,4 +1,5 @@
 import { AppLogo } from '../../Branding/AppLogo';
+import Avatar from '../../DataDisplay/Avatar/Avatar';
 import styles from './Header.module.css';
 
 import type { HeaderProps } from './Header.types';
@@ -16,7 +17,7 @@ const Header = ({ user, leftContent, rightContent }: HeaderProps) => {
         {rightContent}
 
         <div className={styles.userInfo}>
-          <span className={styles.avatar}>👤</span>
+          <Avatar initials={user.initials} />
 
           <div>
             <div className={styles.userName}>{user.fullName}</div>

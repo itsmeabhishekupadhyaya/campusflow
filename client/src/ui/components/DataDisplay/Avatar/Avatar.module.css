@@ -1,0 +1,63 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-primary);
+  color: #fff;
+
+  font-weight: 700;
+  user-select: none;
+  flex-shrink: 0;
+
+  overflow: hidden;
+}
+
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Shape */
+
+.circle {
+  border-radius: 50%;
+}
+
+.rounded {
+  border-radius: var(--radius-md);
+}
+
+/* Sizes */
+
+.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.sm .initials {
+  font-size: 12px;
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+}
+
+.md .initials {
+  font-size: 14px;
+}
+
+.lg {
+  width: 56px;
+  height: 56px;
+}
+
+.lg .initials {
+  font-size: 18px;
+}

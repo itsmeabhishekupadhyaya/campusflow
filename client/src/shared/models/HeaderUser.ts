@@ -3,4 +3,5 @@ export interface HeaderUser {
   fullName: string;
   role: string;
   avatarUrl?: string;
+  initials: string;
 }
