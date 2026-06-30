@@ -1,0 +1,33 @@
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.menuItem {
+  padding: 12px var(--space-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.menuItem:hover {
+  background: #f1f5f9;
+}
+
+.active {
+  background: #eef2ff;
+  color: var(--color-primary);
+  border-right: 3px solid var(--color-primary);
+  font-weight: 700;
+}
