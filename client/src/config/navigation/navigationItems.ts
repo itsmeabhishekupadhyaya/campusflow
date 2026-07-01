@@ -10,47 +10,49 @@ import {
 
 import type { NavigationItem } from './NavigationItem';
 
+import { RoutePaths } from '../../routes/RoutePaths';
+
 export const navigationItems: NavigationItem[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',
     icon: Home,
-    path: '/dashboard',
+    path: RoutePaths.DASHBOARD,
   },
   {
     id: 'students',
     label: 'Students',
     icon: GraduationCap,
-    path: '/students',
+    path: RoutePaths.STUDENTS,
   },
   {
     id: 'teachers',
     label: 'Teachers',
     icon: Users,
-    path: '/teachers',
+    path: RoutePaths.TEACHERS,
   },
   {
     id: 'attendance',
     label: 'Attendance',
     icon: CalendarDays,
-    path: '/attendance',
+    path: RoutePaths.ATTENDANCE,
   },
   {
     id: 'fees',
     label: 'Fees',
     icon: IndianRupee,
-    path: '/fees',
+    path: RoutePaths.FEES,
   },
   {
     id: 'reports',
     label: 'Reports',
     icon: FileText,
-    path: '/reports',
+    path: RoutePaths.REPORTS,
   },
   {
     id: 'settings',
     label: 'Settings',
     icon: Settings,
-    path: '/settings',
+    path: RoutePaths.SETTINGS,
   },
 ];

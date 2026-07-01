@@ -161,6 +161,17 @@ src/ui/components/Layout
 
 This separation follows the Single Responsibility Principle and enables reuse across multiple layouts.
 
+---
+
+## Routing Standards
+
+- Never hardcode URLs.
+- Use RoutePaths constants.
+- All routing is managed from the routes module.
+- AppLayout remains outside feature pages to provide a consistent shell.
+
+---
+
 # Long Term Goal
 
 CampusFlow should evolve into an Enterprise SaaS Platform with reusable architecture capable of supporting multiple schools.

@@ -1,12 +1,7 @@
-import { AppLayout } from './ui';
-import StudentListPage from './features/students/pages/StudentListPage';
+import { AppRoutes } from './routes';
 
 function App() {
-  return (
-    <AppLayout>
-      <StudentListPage />
-    </AppLayout>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
