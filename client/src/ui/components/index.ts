@@ -16,3 +16,4 @@ export * from './PageToolbar';
 export * from './DataDisplay/Avatar';
 export * from './DataDisplay/Badge';
 export * from './Actions/ButtonGroup';
+export * from './Display/Icon';

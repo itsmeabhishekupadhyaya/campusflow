@@ -1,3 +1,4 @@
+import { Pencil, Trash2 } from 'lucide-react';
 import { Table, Badge, Button, ButtonGroup } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
 
@@ -41,12 +42,12 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
               </Badge>
             </td>
             <td>
-              <ButtonGroup>
-                <Button variant="secondary" size="sm">
+              <ButtonGroup gap="sm">
+                <Button variant="secondary" size="sm" startIcon={Pencil}>
                   Edit
                 </Button>
 
-                <Button variant="danger" size="sm">
+                <Button variant="danger" size="sm" startIcon={Trash2}>
                   Delete
                 </Button>
               </ButtonGroup>

@@ -109,4 +109,16 @@
   --button-danger-background: var(--color-danger);
   --button-danger-background-hover: var(--color-danger-hover);
   --button-danger-text: #ffffff;
+
+  /* ======================================================
+   ICON TOKENS
+   ====================================================== */
+
+  --icon-size-sm: 16px;
+  --icon-size-md: 18px;
+  --icon-size-lg: 20px;
+
+  --icon-color: currentColor;
+
+  --icon-stroke-width: 2;
 }
