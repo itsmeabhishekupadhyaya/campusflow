@@ -1,4 +1,4 @@
-import { Table, Badge } from '../../../ui';
+import { Table, Badge, Button, ButtonGroup } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
 
 const StudentTable = ({ students, loading, error }: StudentTableProps) => {
@@ -41,8 +41,15 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
               </Badge>
             </td>
             <td>
-              <button type="submit">Edit</button>
-              <button type="submit">Delete</button>
+              <ButtonGroup>
+                <Button variant="secondary" size="sm">
+                  Edit
+                </Button>
+
+                <Button variant="danger" size="sm">
+                  Delete
+                </Button>
+              </ButtonGroup>
             </td>
           </tr>
         ))}
