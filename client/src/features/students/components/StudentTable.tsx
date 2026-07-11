@@ -1,4 +1,4 @@
-import { Table } from '../../../ui';
+import { Table, Badge } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
 
 const StudentTable = ({ students, loading, error }: StudentTableProps) => {
@@ -35,7 +35,11 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
             <td>{student.mobileNumber}</td>
             <td>{student.gender}</td>
             <td>{student.className}</td>
-            <td> {student.isActive ? 'Active' : 'InActive'}</td>
+            <td>
+              <Badge variant={student.isActive ? 'success' : 'danger'}>
+                {student.isActive ? 'Active' : 'Inactive'}
+              </Badge>
+            </td>
             <td>
               <button type="submit">Edit</button>
               <button type="submit">Delete</button>
