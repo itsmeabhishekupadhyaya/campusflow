@@ -1,7 +1,8 @@
+import type { SortDirection } from '../../../shared/enums/SortDirection';
 export interface StudentQuery {
   page: number;
-  pazeSize: number;
+  pageSize: number;
   serach?: string;
   sortBy?: string;
-  sortDirection?: 'Asc' | 'Desc';
+  sortDirection?: SortDirection;
 }
