@@ -5,7 +5,7 @@ import { useStudents } from '../hooks/useStudents';
 import { SortDirection } from '../../../shared/enums/SortDirection';
 
 const StudentListPage = () => {
-  const { students, loadStudents } = useStudents();
+  const { students, loadStudents, loading, error } = useStudents();
 
   useEffect(() => {
     loadStudents({
@@ -14,7 +14,7 @@ const StudentListPage = () => {
       sortBy: 'firstName',
       sortDirection: SortDirection.Ascending,
     });
-  }, [loadStudents]);
+  }, [loadStudents, loading, error]);
 
   return (
     <PageContainer>
@@ -24,7 +24,7 @@ const StudentListPage = () => {
         actions={<Button>Add Student</Button>}
       />
       <SearchInput placeholder="Search students..." />
-      <StudentTable students={students} />
+      <StudentTable students={students} loading={loading} error={error} />
     </PageContainer>
   );
 };
