@@ -9,7 +9,7 @@ export const colors = {
   danger: palette.danger[600],
 
   background: palette.gray[50],
-  surface: '#FFFFFF',
+  surface: '#fafbfc',
 
   border: palette.gray[200],
 

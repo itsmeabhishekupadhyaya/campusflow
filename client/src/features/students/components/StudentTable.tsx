@@ -1,3 +1,4 @@
+import { Table } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
 
 const StudentTable = ({ students, loading, error }: StudentTableProps) => {
@@ -12,7 +13,7 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
   }
 
   return (
-    <table className="table table-striped table-hover">
+    <Table>
       <thead>
         <tr>
           <th>Name</th>
@@ -27,7 +28,9 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
       <tbody>
         {students.map((student) => (
           <tr key={student.id}>
-            <td>{student.firstName}</td>
+            <td>
+              {student.firstName} {student.lastName}
+            </td>
             <td>{student.email}</td>
             <td>{student.mobileNumber}</td>
             <td>{student.gender}</td>
@@ -40,7 +43,7 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
           </tr>
         ))}
       </tbody>
-    </table>
+    </Table>
   );
 };
 export default StudentTable;
