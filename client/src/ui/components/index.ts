@@ -11,3 +11,4 @@ export * from './Layout/AppLayout';
 export * from './Layout/Header';
 export * from './Layout/Sidebar';
 export * from './Branding/AppLogo';
+export * from './Table';

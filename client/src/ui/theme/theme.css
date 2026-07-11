@@ -25,7 +25,6 @@
   --color-text-secondary: #64748b;
 
   /* Spacing */
-
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -61,4 +60,8 @@
   --font-weight-medium: 500;
 
   --font-weight-bold: 700;
+
+  /* Table */
+  --color-table-row-hover: #eef2ff;
+  --color-table-header: #f1f5f9;
 }
