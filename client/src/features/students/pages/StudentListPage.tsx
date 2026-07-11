@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button, PageContainer, PageHeader, SearchInput } from '../../../ui';
+import { Button, PageContainer, PageHeader, PageToolBar, SearchInput } from '../../../ui';
 import StudentTable from '../components/StudentTable';
 import { useStudents } from '../hooks/useStudents';
 import { SortDirection } from '../../../shared/enums/SortDirection';
@@ -18,12 +18,12 @@ const StudentListPage = () => {
 
   return (
     <PageContainer>
-      <PageHeader
-        title="Student Management"
-        description="Manage all students from one place."
-        actions={<Button>Add Student</Button>}
+      <PageHeader title="Student Management" description="Manage all students from one place." />
+      <PageToolBar
+        left={<SearchInput placeholder="Search students..." />}
+        right={<Button>Add Student</Button>}
       />
-      <SearchInput placeholder="Search students..." />
+
       <StudentTable students={students} loading={loading} error={error} />
     </PageContainer>
   );
