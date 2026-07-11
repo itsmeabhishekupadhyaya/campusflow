@@ -4,6 +4,10 @@
   cursor: pointer;
   font-weight: var(--font-weight-medium);
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
 }
 
 .button:focus-visible {
@@ -70,4 +74,9 @@
 
 .lg {
   padding: var(--space-md) var(--space-xl);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
 }

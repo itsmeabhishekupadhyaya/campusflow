@@ -3,6 +3,7 @@ import { Button, PageContainer, PageHeader, PageToolBar, SearchInput } from '../
 import StudentTable from '../components/StudentTable';
 import { useStudents } from '../hooks/useStudents';
 import { SortDirection } from '../../../shared/enums/SortDirection';
+import { Plus } from 'lucide-react';
 
 const StudentListPage = () => {
   const { students, loadStudents, loading, error } = useStudents();
@@ -21,7 +22,7 @@ const StudentListPage = () => {
       <PageHeader title="Student Management" description="Manage all students from one place." />
       <PageToolBar
         left={<SearchInput placeholder="Search students..." />}
-        right={<Button>Add Student</Button>}
+        right={<Button startIcon={Plus}>Add Student</Button>}
       />
 
       <StudentTable students={students} loading={loading} error={error} />
