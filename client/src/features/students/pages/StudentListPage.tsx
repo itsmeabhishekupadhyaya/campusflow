@@ -2,26 +2,27 @@ import { useEffect } from 'react';
 import { Button, PageContainer, PageHeader, PageToolBar, SearchInput } from '../../../ui';
 import StudentTable from '../components/StudentTable';
 import { useStudents } from '../hooks/useStudents';
-import { SortDirection } from '../../../shared/enums/SortDirection';
+
 import { Plus } from 'lucide-react';
 
 const StudentListPage = () => {
-  const { students, loadStudents, loading, error } = useStudents();
+  const { students, loadStudents, loading, error, query, updateSearch } = useStudents();
 
   useEffect(() => {
-    loadStudents({
-      page: 1,
-      pageSize: 10,
-      sortBy: 'firstName',
-      sortDirection: SortDirection.Ascending,
-    });
-  }, [loadStudents, loading, error]);
+    loadStudents(query);
+  }, [query, loadStudents]);
 
   return (
     <PageContainer>
       <PageHeader title="Student Management" description="Manage all students from one place." />
       <PageToolBar
-        left={<SearchInput placeholder="Search students..." />}
+        left={
+          <SearchInput
+            placeholder="Search students..."
+            value={query.search}
+            onChange={(event) => updateSearch(event.target.value)}
+          />
+        }
         right={<Button startIcon={Plus}>Add Student</Button>}
       />
 
