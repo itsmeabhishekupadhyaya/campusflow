@@ -1,15 +1,10 @@
-import styles from './Navigation.module.css';
+import styles from './Menu.module.css';
 
-import NavigationItem from './NavigationItem';
+import MenuItem from './component/MenuItem/MenuItem';
 
-import type { NavigationProps } from './Navigation.types';
+import type { MenuProps } from './Menu.types';
 
-const Navigation = ({
-  items,
-  direction = 'vertical',
-  activeItemId,
-  onItemClick,
-}: NavigationProps) => {
+const Menu = ({ items, direction = 'vertical', activeItemId, onItemClick }: MenuProps) => {
   return (
     <nav>
       <ul
@@ -21,7 +16,7 @@ const Navigation = ({
         {items
           .filter((item) => item.isVisible !== false)
           .map((item) => (
-            <NavigationItem
+            <MenuItem
               key={item.id}
               item={item}
               isActive={activeItemId === item.id}
@@ -33,4 +28,4 @@ const Navigation = ({
   );
 };
 
-export default Navigation;
+export default Menu;

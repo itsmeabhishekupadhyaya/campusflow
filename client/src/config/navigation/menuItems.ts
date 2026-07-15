@@ -8,11 +8,11 @@ import {
   Users,
 } from 'lucide-react';
 
-import type { NavigationItem } from './NavigationItem';
+import type { MenuItemModel } from './MenuItemModel';
 
 import { RoutePaths } from '../../routes/RoutePaths';
 
-export const navigationItems: NavigationItem[] = [
+export const menuItems: MenuItemModel[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',
