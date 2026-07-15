@@ -2,13 +2,13 @@ import type { LucideIcon } from 'lucide-react';
 
 export type NavigationIcon = LucideIcon;
 
-export interface NavigationItem {
+export interface MenuItemModel {
   id: string;
   label: string;
   icon: NavigationIcon;
   path: string;
 
-  children?: NavigationItem[];
+  children?: MenuItemModel[];
 
   badge?: string;
 

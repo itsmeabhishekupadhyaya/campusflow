@@ -1,2 +1,2 @@
-export { default as Navigation } from './Navigation';
-export type { NavigationProps } from './Navigation.types';
+export * from './Menu';
+export * from './Pagination';

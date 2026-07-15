@@ -4,11 +4,20 @@
   --color-primary: #6366f1;
   --color-primary-hover: #4338ca;
 
+  /* Secondary */
+  --color-secondary: #ffffff;
+  --color-secondary-hover: #f8fafc;
+
   /* Semantic */
 
   --color-success: #16a34a;
+  --color-success-hover: #15803d;
+
   --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+
   --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
 
   /* Background */
 
@@ -23,9 +32,15 @@
 
   --color-text-primary: #1e293b;
   --color-text-secondary: #64748b;
+  --color-text-danger: #e3e7ec;
+
+  --color-text-on-primary: #ffffff;
+  --color-text-on-success: #ffffff;
+  --color-text-on-warning: #ffffff;
+  --color-text-on-danger: #ffffff;
+  --color-text-on-secondary: #1e293b;
 
   /* Spacing */
-
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -61,4 +76,49 @@
   --font-weight-medium: 500;
 
   --font-weight-bold: 700;
+
+  /* Table */
+  --color-table-row-hover: #eef2ff;
+  --color-table-header: #f1f5f9;
+
+  /* ======================================================
+   BUTTON TOKENS
+   ====================================================== */
+
+  /* Primary */
+
+  --button-primary-background: var(--color-primary);
+  --button-primary-background-hover: var(--color-primary-hover);
+  --button-primary-text: #ffffff;
+
+  /* Secondary */
+
+  --button-secondary-background: var(--color-surface);
+  --button-secondary-background-hover: var(--color-background);
+  --button-secondary-border: var(--color-border);
+  --button-secondary-text: var(--color-text-primary);
+
+  /* Success */
+
+  --button-success-background: var(--color-success);
+  --button-success-background-hover: var(--color-success-hover);
+  --button-success-text: #ffffff;
+
+  /* Danger */
+
+  --button-danger-background: var(--color-danger);
+  --button-danger-background-hover: var(--color-danger-hover);
+  --button-danger-text: #ffffff;
+
+  /* ======================================================
+   ICON TOKENS
+   ====================================================== */
+
+  --icon-size-sm: 16px;
+  --icon-size-md: 18px;
+  --icon-size-lg: 20px;
+
+  --icon-color: currentColor;
+
+  --icon-stroke-width: 2;
 }

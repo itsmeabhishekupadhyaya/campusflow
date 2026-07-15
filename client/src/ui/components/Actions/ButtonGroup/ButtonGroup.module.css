@@ -1,0 +1,14 @@
+.group {
+  display: flex;
+
+  align-items: center;
+}
+.sm {
+  gap: var(--space-sm);
+}
+.lg {
+  gap: var(--space-lg);
+}
+.md {
+  gap: var(--space-md);
+}

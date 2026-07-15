@@ -2,122 +2,97 @@
 
 ## Overview
 
-Welcome to the official documentation for **CampusFlow**.
+Welcome to the CampusFlow Engineering Documentation.
 
-CampusFlow is an Enterprise School Management Platform being developed following real-world software engineering practices.
+This documentation serves as the single source of truth for the project's architecture, engineering standards, development process, and technical decisions.
 
-The goal of this project is not only to build software but also to learn every phase of modern product development including:
+Every developer working on CampusFlow should read these documents before contributing to the project.
 
-- Product Management
-- Business Analysis
-- UI/UX
-- Frontend Development
-- Backend Development
-- API First Design
-- Microservices Architecture
-- Software Architecture
-- DevOps
+---
+
+# Documentation Structure
+
+## 01 - Architecture
+
+Contains high-level architectural decisions and system design.
+
+Examples:
+
+- Frontend Architecture
+- Backend Architecture
+- Feature Module Architecture
+- UI Foundation
+- Folder Structure
+
+---
+
+## 02 - Development
+
+Contains engineering standards and development guidelines.
+
+Examples:
+
+- Development Standards
+- Coding Standards
 - Git Workflow
-- Code Review
-- Documentation
-- Deployment
-- Product Ownership
-
-This repository is organized exactly like a professional engineering team's repository.
+- Naming Conventions
+- Story Development Process
 
 ---
 
-# Repository Structure
+## 03 - Decisions
 
-```
-docs/
-│
-├── README.md
-├── architecture/
-├── roadmap/
-├── standards/
-├── stories/
-└── meeting-notes/
-```
+Architecture Decision Records (ADR).
 
----
+Every important technical decision is documented here with its reasoning.
 
-# Development Philosophy
+Examples:
 
-CampusFlow follows these engineering principles:
-
-- API First Development
-- Component Driven UI
-- Design System First
-- Feature Based Architecture
-- Clean Code
-- SOLID Principles
-- Single Source of Truth
-- Documentation First
-- Incremental Product Enhancement
+- Feature-Based Architecture
+- Intent-Based Hooks
+- UI Foundation
+- Theme System
 
 ---
 
-# Product Modules
+## 04 - Stories
 
-The platform will gradually include:
+Contains implementation details for every completed development story.
 
-- Dashboard
-- Student Management
-- Teacher Management
-- Attendance
-- Fee Management
-- Inventory
-- Administration
-- Reports
-- Authentication
-- Notification Center
-- Settings
+Each story documents:
+
+- Objective
+- Acceptance Criteria
+- Files Changed
+- Technical Decisions
+- Lessons Learned
 
 ---
 
-# Technology Stack
+# Engineering Philosophy
 
-## Frontend
+CampusFlow follows a feature-driven development approach.
 
-- React
-- TypeScript
-- Vite
-- Electron
-- Tailwind CSS
-- Design System (In-house)
+The project prioritizes:
 
-## Backend
-
-- .NET Web API
-- API First Design
-- Microservices
-- SQL Server
+- Clean Architecture
+- Reusable UI Components
+- Feature-Based Structure
+- Design System
+- API-First Development
+- Strong Engineering Standards
 
 ---
 
-# Learning Objective
+# Documentation Rules
 
-This repository is intentionally developed as if it were a real enterprise software product.
-
-Every decision, architecture change, enhancement, sprint and feature will be documented.
-
-The objective is to learn not only programming, but complete Software Engineering.
-
----
-
-# Documentation Index
-
-| Folder        | Purpose                                     |
-| ------------- | ------------------------------------------- |
-| architecture  | High level architecture and ADRs            |
-| roadmap       | Product planning                            |
-| standards     | Engineering standards                       |
-| stories       | Business stories and implementation details |
-| meeting-notes | Sprint notes and discussions                |
+- Every major architectural decision must be documented.
+- Every completed story must have its own story document.
+- Documentation should evolve together with the codebase.
+- The documentation is considered part of the product.
 
 ---
 
-Welcome to CampusFlow.
+# Maintained By
 
-Let's build a product—not just an application.
+CampusFlow Engineering Team
