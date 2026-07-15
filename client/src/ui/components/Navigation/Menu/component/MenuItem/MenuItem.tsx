@@ -1,10 +1,10 @@
-import { icon } from '../../../theme';
+import { icon } from '../../../../../theme';
 
-import styles from './NavigationItem.module.css';
+import styles from './MenuItem.module.css';
 
-import type { NavigationItemProps } from './NavigationItem.types';
+import type { MenuItemProps } from './MenuItem.types';
 
-const NavigationItem = ({ item, isActive = false, onClick }: NavigationItemProps) => {
+const MenuItem = ({ item, isActive = false, onClick }: MenuItemProps) => {
   const Icon = item.icon;
 
   return (
@@ -26,4 +26,4 @@ const NavigationItem = ({ item, isActive = false, onClick }: NavigationItemProps
   );
 };
 
-export default NavigationItem;
+export default MenuItem;

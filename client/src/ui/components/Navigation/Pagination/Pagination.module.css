@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: var(--space-xl);
+
+  padding: var(--space-lg);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-surface);
+}
+
+.summary {
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-caption);
+}
+
+.actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--space-md);
+}
+
+.pageInfo {
+  color: var(--color-text-primary);
+
+  font-weight: var(--font-weight-medium);
+}

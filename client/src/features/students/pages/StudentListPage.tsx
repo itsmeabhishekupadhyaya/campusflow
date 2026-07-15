@@ -1,16 +1,18 @@
-import { useEffect } from 'react';
-import { Button, PageContainer, PageHeader, PageToolBar, SearchInput } from '../../../ui';
+import {
+  Button,
+  PageContainer,
+  PageHeader,
+  PageToolBar,
+  Pagination,
+  SearchInput,
+} from '../../../ui';
 import StudentTable from '../components/StudentTable';
 import { useStudents } from '../hooks/useStudents';
 
 import { Plus } from 'lucide-react';
 
 const StudentListPage = () => {
-  const { students, loadStudents, loading, error, query, updateSearch } = useStudents();
-
-  useEffect(() => {
-    loadStudents(query);
-  }, [query, loadStudents]);
+  const { students, loading, error, query, totalRecords, updateSearch, updatePage } = useStudents();
 
   return (
     <PageContainer>
@@ -27,6 +29,12 @@ const StudentListPage = () => {
       />
 
       <StudentTable students={students} loading={loading} error={error} />
+      <Pagination
+        page={query.page}
+        pageSize={query.pageSize}
+        totalRecords={totalRecords}
+        onPageChange={updatePage}
+      />
     </PageContainer>
   );
 };
