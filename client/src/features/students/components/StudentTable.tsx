@@ -1,16 +1,27 @@
 import { Pencil, Trash2 } from 'lucide-react';
 import { Table, Badge, Button, ButtonGroup } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
+import { LoadingState, ErrorState, EmptyState } from '../../../ui';
 
 const StudentTable = ({ students, loading, error }: StudentTableProps) => {
   if (loading) {
-    return <div>Loading Students ....</div>;
+    return <LoadingState />;
   }
   if (error) {
-    return <div>{error}</div>;
+    <ErrorState
+      title="Unable to load students"
+      description={error}
+      action={<Button>Retry</Button>}
+    />;
   }
-  if (students.length == 0) {
-    return <div>No Student Found</div>;
+  if (students.length === 0) {
+    return (
+      <EmptyState
+        title="No students found"
+        description="Try changing your search or add your first student."
+        action={<Button>Add Student</Button>}
+      />
+    );
   }
 
   return (
