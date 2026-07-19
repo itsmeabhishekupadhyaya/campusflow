@@ -1,0 +1,13 @@
+.sortable {
+  cursor: pointer;
+
+  user-select: none;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.sortable:hover {
+  color: var(--color-button-primary);
+}

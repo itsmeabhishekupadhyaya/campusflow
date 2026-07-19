@@ -1,0 +1,19 @@
+.icon {
+  margin-left: var(--space-xs);
+
+  color: var(--color-text-secondary);
+
+  vertical-align: middle;
+
+  opacity: 0.5;
+
+  transition: all 0.2s ease;
+}
+
+.active {
+  margin-left: var(--space-xs);
+
+  color: var(--color-button-primary);
+
+  vertical-align: middle;
+}
