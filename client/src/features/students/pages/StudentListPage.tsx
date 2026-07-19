@@ -12,7 +12,8 @@ import { useStudents } from '../hooks/useStudents';
 import { Plus } from 'lucide-react';
 
 const StudentListPage = () => {
-  const { students, loading, error, query, totalRecords, updateSearch, updatePage } = useStudents();
+  const { students, loading, error, query, totalRecords, updateSearch, updatePage, updateSorting } =
+    useStudents();
 
   return (
     <PageContainer>
@@ -28,7 +29,13 @@ const StudentListPage = () => {
         right={<Button startIcon={Plus}>Add Student</Button>}
       />
 
-      <StudentTable students={students} loading={loading} error={error} />
+      <StudentTable
+        students={students}
+        loading={loading}
+        error={error}
+        query={query}
+        onSort={updateSorting}
+      />
       <Pagination
         page={query.page}
         pageSize={query.pageSize}
