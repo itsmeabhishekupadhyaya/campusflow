@@ -5,7 +5,7 @@ export * from './Layout/PageHeader';
 // Button Components
 export * from './Actions/Button/Button';
 //SearchInput
-export * from './Form/SearchInput';
+export * from './Form';
 
 export * from './Layout/AppLayout';
 export * from './Layout/Header';

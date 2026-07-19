@@ -1,4 +1,4 @@
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Plus, RotateCcw, Trash2 } from 'lucide-react';
 import { Table, Badge, Button, ButtonGroup, SortIcon } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
 import { LoadingState, ErrorState, EmptyState } from '../../../ui';
@@ -12,7 +12,7 @@ const StudentTable = ({ students, loading, error, query, onSort }: StudentTableP
     <ErrorState
       title="Unable to load students"
       description={error}
-      action={<Button>Retry</Button>}
+      action={<Button startIcon={RotateCcw}>Retry</Button>}
     />;
   }
   if (students.length === 0) {
@@ -20,7 +20,7 @@ const StudentTable = ({ students, loading, error, query, onSort }: StudentTableP
       <EmptyState
         title="No students found"
         description="Try changing your search or add your first student."
-        action={<Button>Add Student</Button>}
+        action={<Button startIcon={Plus}>Add Student</Button>}
       />
     );
   }
