@@ -1,0 +1,38 @@
+.textBox {
+  width: 100%;
+
+  padding: var(--space-sm) var(--space-md);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  background-color: var(--color-surface);
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-sm);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.textBox:focus {
+  outline: none;
+
+  border-color: var(--color-primary);
+
+  box-shadow: 0 0 0 3px var(--color-primary-100);
+}
+
+.textBox:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+
+  background-color: var(--color-surface-disabled);
+}
+.textBox::placeholder {
+  color: var(--color-text-secondary);
+}
