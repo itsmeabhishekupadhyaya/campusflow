@@ -31,7 +31,6 @@
 }
 
 .pageInfo {
-  color: var(--color-text-primary);
-
-  font-weight: var(--font-weight-medium);
+  font-weight: normal;
+  color: var(--color-text-secondary);
 }

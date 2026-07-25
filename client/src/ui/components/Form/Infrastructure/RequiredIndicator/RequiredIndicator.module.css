@@ -1,0 +1,9 @@
+.required {
+  color: var(--color-danger);
+
+  font-size: inherit;
+
+  font-weight: inherit;
+
+  line-height: 1;
+}

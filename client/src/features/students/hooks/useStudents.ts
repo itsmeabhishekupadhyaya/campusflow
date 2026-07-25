@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import type { Student } from '../types/student';
-import type { StudentQuery } from '../types/studentQuery';
+import type { StudentQuery, StudentSortField } from '../types/studentQuery';
 
 import { getStudents } from '../api/studentApi';
 import { SortDirection } from '../../../shared/enums/SortDirection';
@@ -37,7 +37,23 @@ export const useStudents = () => {
       page,
     }));
   };
+  const updateSorting = (sortBy: StudentSortField) => {
+    setQuery((previousQuery) => {
+      const isCurrentColumn = previousQuery.sortBy === sortBy;
 
+      const updatedQuery = {
+        ...previousQuery,
+        sortBy,
+        sortDirection:
+          isCurrentColumn && previousQuery.sortDirection === SortDirection.Ascending
+            ? SortDirection.Descending
+            : SortDirection.Ascending,
+        page: 1,
+      };
+
+      return updatedQuery;
+    });
+  };
   useEffect(() => {
     const fetchStudents = async () => {
       try {
@@ -68,5 +84,6 @@ export const useStudents = () => {
     totalRecords,
     updateSearch,
     updatePage,
+    updateSorting,
   };
 };

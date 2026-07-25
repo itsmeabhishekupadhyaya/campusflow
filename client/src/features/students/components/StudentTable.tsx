@@ -1,9 +1,10 @@
-import { Pencil, Trash2 } from 'lucide-react';
-import { Table, Badge, Button, ButtonGroup } from '../../../ui';
+import { Pencil, Plus, RotateCcw, Trash2 } from 'lucide-react';
+import { Table, Badge, Button, ButtonGroup, SortIcon } from '../../../ui';
 import type { StudentTableProps } from './StudentTable.types';
 import { LoadingState, ErrorState, EmptyState } from '../../../ui';
+import styles from './StudentTable.module.css';
 
-const StudentTable = ({ students, loading, error }: StudentTableProps) => {
+const StudentTable = ({ students, loading, error, query, onSort }: StudentTableProps) => {
   if (loading) {
     return <LoadingState />;
   }
@@ -11,7 +12,7 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
     <ErrorState
       title="Unable to load students"
       description={error}
-      action={<Button>Retry</Button>}
+      action={<Button startIcon={RotateCcw}>Retry</Button>}
     />;
   }
   if (students.length === 0) {
@@ -19,7 +20,7 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
       <EmptyState
         title="No students found"
         description="Try changing your search or add your first student."
-        action={<Button>Add Student</Button>}
+        action={<Button startIcon={Plus}>Add Student</Button>}
       />
     );
   }
@@ -28,11 +29,26 @@ const StudentTable = ({ students, loading, error }: StudentTableProps) => {
     <Table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Mobile</th>
-          <th>Gender</th>
-          <th>Class</th>
+          <th onClick={() => onSort('firstName')} className={styles.sortable}>
+            Name
+            <SortIcon active={query.sortBy === 'firstName'} direction={query.sortDirection} />
+          </th>
+          <th onClick={() => onSort('email')} className={styles.sortable}>
+            Email
+            <SortIcon active={query.sortBy === 'email'} direction={query.sortDirection} />
+          </th>
+          <th onClick={() => onSort('mobile')} className={styles.sortable}>
+            Mobile
+            <SortIcon active={query.sortBy === 'mobile'} direction={query.sortDirection} />
+          </th>
+          <th onClick={() => onSort('gender')} className={styles.sortable}>
+            Gender
+            <SortIcon active={query.sortBy === 'gender'} direction={query.sortDirection} />
+          </th>
+          <th onClick={() => onSort('class')} className={styles.sortable}>
+            Class
+            <SortIcon active={query.sortBy === 'class'} direction={query.sortDirection} />
+          </th>
           <th>Status</th>
           <th>Actions</th>
         </tr>
