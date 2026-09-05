@@ -13,6 +13,7 @@ import FeePage from '../features/fees/pages/feePage';
 import AttendancePage from '../features/attendance/pages/attendancePage';
 import SettingPage from '../features/settings/pages/settingPage';
 import ReportPage from '../features/reports/pages/reportPage';
+import StudentAddPage from '../features/students/pages/StudentAddPage/StudentAddPage';
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
           <Route path={RoutePaths.STUDENTS} element={<StudentListPage />} />
+          <Route path={RoutePaths.STUDENT_ADD} element={<StudentAddPage />} />
           <Route path={RoutePaths.DASHBOARD} element={<DashboardPage />} />
           <Route path={RoutePaths.TEACHERS} element={<TeacherPage />} />
           <Route path={RoutePaths.FEES} element={<FeePage />} />

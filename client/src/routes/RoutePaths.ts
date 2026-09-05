@@ -4,6 +4,7 @@ export const RoutePaths = {
   DASHBOARD: '/dashboard',
 
   STUDENTS: '/students',
+  STUDENT_ADD: '/students/add',
 
   TEACHERS: '/teachers',
 
