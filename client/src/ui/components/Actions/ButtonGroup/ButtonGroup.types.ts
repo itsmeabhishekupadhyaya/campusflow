@@ -1,6 +1,5 @@
-import type { ReactNode } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
-export type ButtonGroupProps = {
-  children: ReactNode;
+export interface ButtonGroupProps extends ComponentPropsWithoutRef<'div'> {
   gap?: 'sm' | 'md' | 'lg';
-};
+}

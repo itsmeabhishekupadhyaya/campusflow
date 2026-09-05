@@ -12,3 +12,6 @@
 .md {
   gap: var(--space-md);
 }
+.actions {
+  margin-top: var(--space-xl);
+}
