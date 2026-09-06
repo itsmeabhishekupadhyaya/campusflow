@@ -6,6 +6,8 @@ import styles from './StudentAddPage.module.css';
 import { useState } from 'react';
 import type { ChangeEvent } from 'react';
 import type { StudentFormModel } from '../../types/studentForm';
+import type { StudentFormErrors } from '../../validation/StudentFormErrors';
+import { validateStudentForm } from '../../validation/validateStudentForm';
 
 const StudentAddPage = () => {
   const [student, setStudent] = useState<StudentFormModel>({
@@ -27,11 +29,19 @@ const StudentAddPage = () => {
     }));
     console.log(student);
   };
+  const [errors, setErrors] = useState<StudentFormErrors>({});
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const validationErrors = validateStudentForm(student);
+
+    setErrors(validationErrors);
+  };
   return (
     <PageContainer>
       <PageHeader title="Add Student" />
-      <form className={styles.form}>
-        <FormField label="First Name" required inputId="firstName">
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <FormField label="First Name" required inputId="firstName" error={errors.firstName}>
           <TextBox
             id="firstName"
             name="firstName"
@@ -41,7 +51,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Last Name" required inputId="lastName">
+        <FormField label="Last Name" required inputId="lastName" error={errors.lastName}>
           <TextBox
             id="lastName"
             name="lastName"
@@ -51,7 +61,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Email" required inputId="email">
+        <FormField label="Email" required inputId="email" error={errors.email}>
           <TextBox
             id="email"
             name="email"
@@ -61,7 +71,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Mobile" required inputId="mobileNumber">
+        <FormField label="Mobile" required inputId="mobileNumber" error={errors.mobileNumber}>
           <TextBox
             id="mobileNumber"
             name="mobileNumber"
@@ -71,7 +81,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Gender" required inputId="gender">
+        <FormField label="Gender" required inputId="gender" error={errors.gender}>
           <TextBox
             id="gender"
             name="gender"
@@ -81,7 +91,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Class" required inputId="class">
+        <FormField label="Class" required inputId="class" error={errors.class}>
           <TextBox
             id="class"
             name="class"
@@ -91,7 +101,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Date of Birth" required inputId="dob">
+        <FormField label="Date of Birth" required inputId="dob" error={errors.dateOfBirth}>
           <TextBox
             id="dob"
             name="dob"
@@ -101,7 +111,7 @@ const StudentAddPage = () => {
           ></TextBox>
         </FormField>
 
-        <FormField label="Address" required inputId="address">
+        <FormField label="Address" required inputId="address" error={errors.address}>
           <TextBox
             id="address"
             name="address"
