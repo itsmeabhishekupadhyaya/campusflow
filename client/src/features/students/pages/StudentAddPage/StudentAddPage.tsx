@@ -2,6 +2,8 @@ import { Plus, X } from 'lucide-react';
 import { Button, ButtonGroup, PageContainer, PageHeader } from '../../../../ui';
 import TextBox from '../../../../ui/components/Form/Controls/TextBox';
 import FormField from '../../../../ui/components/Form/Infrastructure/FormField';
+import Select from '../../../../ui/components/Form/Controls/Select';
+import DatePicker from '../../../../ui/components/Form/Controls/DatePicker';
 import styles from './StudentAddPage.module.css';
 import { useState } from 'react';
 import type { ChangeEvent } from 'react';
@@ -20,15 +22,16 @@ const StudentAddPage = () => {
     dateOfBirth: '',
     address: '',
   });
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
 
     setStudent((previous) => ({
       ...previous,
       [name]: value,
     }));
-    console.log(student);
   };
+
   const [errors, setErrors] = useState<StudentFormErrors>({});
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -82,33 +85,32 @@ const StudentAddPage = () => {
         </FormField>
 
         <FormField label="Gender" required inputId="gender" error={errors.gender}>
-          <TextBox
-            id="gender"
-            name="gender"
-            value={student.gender}
-            onChange={handleChange}
-            placeholder="Enter gender"
-          ></TextBox>
+          <Select id="gender" name="gender" value={student.gender} onChange={handleChange}>
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </Select>
         </FormField>
 
         <FormField label="Class" required inputId="class" error={errors.class}>
-          <TextBox
-            id="class"
-            name="class"
-            value={student.class}
-            onChange={handleChange}
-            placeholder="Enter class"
-          ></TextBox>
+          <Select id="class" name="class" value={student.class} onChange={handleChange}>
+            <option value="">Select class</option>
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+          </Select>
         </FormField>
 
         <FormField label="Date of Birth" required inputId="dob" error={errors.dateOfBirth}>
-          <TextBox
+          <DatePicker
             id="dob"
-            name="dob"
+            name="dateOfBirth"
             value={student.dateOfBirth}
             onChange={handleChange}
-            placeholder="Enter date of birth"
-          ></TextBox>
+          />
         </FormField>
 
         <FormField label="Address" required inputId="address" error={errors.address}>
