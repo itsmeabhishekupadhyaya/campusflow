@@ -1,0 +1,757 @@
+# CampusFlow --- Enterprise Engineering Roadmap
+
+## Project Goal
+
+CampusFlow is a Student Management Platform being developed as an
+enterprise engineering learning project.
+
+The implementation approach is intentionally iterative:
+
+> **Clarity over cleverness. Build the simplest clean solution first.
+> The second implementation earns the abstraction.**
+
+The roadmap is designed to progressively introduce:
+
+- React and TypeScript engineering
+- Feature-based frontend architecture
+- API and application-layer design
+- SOLID principles
+- Clean Architecture
+- Testing
+- Database and distributed-system concepts
+- Microservices
+- Security, observability, resilience, CI/CD, and deployment
+- System design and Forward Deployed Engineer skills
+
+---
+
+# Phase 1 --- Foundation
+
+---
+
+Story Area Goal Status
+
+---
+
+ST-001 Project & Establish project Done
+Architecture structure,
+Foundation conventions, and
+architecture
+principles
+
+ST-002 Application Shell Establish Done
+application
+layout and shell
+
+ST-003 Design System Establish Done
+Foundation reusable UI
+primitives and
+theme tokens
+
+ST-004 Routing Establish Done
+centralized
+routing and
+protected routes
+
+---
+
+### Engineering principles introduced
+
+- Feature-first organization
+- Separation of responsibilities
+- Reusable UI vs feature-specific UI
+- Centralized routing
+- Theme tokens
+- Explicit TypeScript types
+- Small focused components
+
+---
+
+# Phase 2 --- Student List
+
+Story Area Goal Status
+
+---
+
+ST-005 Student API Integrate Student API Done
+ST-006 Student List Display students Done
+ST-007 Search Add student search Done
+ST-008 Pagination Add server-side pagination Done
+ST-009 Enterprise Sorting Add backend sorting Done
+ST-010 List UX Loading, empty, and error states Done
+
+### Important architectural decisions
+
+Backend query behavior was separated into focused operations such as:
+
+- `ApplySorting`
+- `ApplyPaging`
+
+Student-specific sort fields are represented through feature/application
+constants.
+
+Generic pagination and sorting abstractions were deliberately deferred.
+
+> **The second implementation earns the abstraction.**
+
+Status sorting was also deferred because the current global `IsDeleted`
+filter does not provide meaningful business-status ordering. A future
+Business Status Management story will address this properly.
+
+---
+
+# Phase 3 --- Forms Foundation
+
+Story Area Goal Status
+
+---
+
+ST-011 Form Infrastructure Establish form infrastructure Done
+ST-012 Add Student Form Build the Student Add form UI Done
+ST-013 Form State Introduce controlled form state Done
+ST-014 Form Validation Add Student form validation Done
+
+## Current Form Architecture
+
+```text
+ui
+└── components
+    └── Form
+        ├── Infrastructure
+        │   ├── FormField
+        │   ├── Label
+        │   └── RequiredIndicator
+        └── Controls
+            └── TextBox
+```
+
+## Student Form Model
+
+```text
+features/students/types/
+└── studentForm.ts
+```
+
+The form model is intentionally separate from the API Student model
+because form state represents a specific use case.
+
+## ST-014 Validation
+
+Current validation rules:
+
+Field Rules
+
+---
+
+First Name Required
+Last Name Required
+Email Required + valid email
+Mobile Required + valid 10-digit mobile number
+Gender Required
+Class Required
+Date of Birth Required
+Address Required
+
+Validation currently occurs on form submission and produces field-level
+errors.
+
+Validation infrastructure remains Student-specific until a second
+implementation demonstrates real duplication.
+
+---
+
+# Phase 4 --- Student Creation
+
+## ST-015 --- Student Form Controls
+
+Introduce controls based on actual Student form requirements:
+
+- Select
+- DatePicker
+- TextArea
+
+Expected usage:
+
+```text
+Gender
+  → Select / RadioGroup
+
+Class
+  → Select
+
+Date of Birth
+  → DatePicker
+
+Address
+  → TextArea
+```
+
+Controls should only be introduced when the real use case requires them.
+
+Do not build an entire generic form-control library prematurely.
+
+## ST-016 --- Student Create API Contract
+
+Define the API request/response contract for creating a Student.
+
+Focus:
+
+- Request DTO
+- API endpoint
+- HTTP contract
+- Request mapping
+- Response handling
+
+Keep API communication separate from UI state.
+
+## ST-017 --- Create Student Use Case
+
+Introduce the first meaningful application/use-case boundary.
+
+Conceptually:
+
+```text
+UI
+ ↓
+Form State
+ ↓
+Validation
+ ↓
+Create Student Use Case
+ ↓
+API
+```
+
+The use case should not depend on React.
+
+## ST-018 --- Student Form Submission
+
+Connect the validated form to the Create Student use case.
+
+Flow:
+
+```text
+Submit
+ ↓
+Prevent default
+ ↓
+Validate
+ ↓
+Map form model
+ ↓
+Create Student
+ ↓
+Handle result
+```
+
+## ST-019 --- Success / Error Handling
+
+Introduce user-facing handling for:
+
+- Successful creation
+- API validation errors
+- Network/server errors
+- Submission state
+- Duplicate/known business errors where applicable
+
+## ST-020 --- Student Creation Tests
+
+Introduce tests around:
+
+- Validation
+- Form behavior
+- Create Student use case
+- API failure behavior
+- Successful creation
+
+---
+
+# Phase 5 --- Student Management
+
+---
+
+Story Area Goal
+
+---
+
+ST-021 Student Details View a Student
+
+ST-022 Edit Student Update Student
+information
+
+ST-023 Delete / Deactivate Manage Student
+lifecycle
+
+ST-024 Business Status Establish meaningful
+Management Student status
+
+ST-025 Student Management Test management
+Tests workflows
+
+---
+
+This phase should expose real similarities between:
+
+- Create
+- Update
+- Details
+- List
+
+We will use those similarities as evidence before introducing
+abstractions.
+
+---
+
+# Phase 6 --- Second Feature: Teachers
+
+The Teacher feature is intentionally introduced before creating broad
+shared abstractions.
+
+Story Area Goal
+
+---
+
+ST-026 Teacher List Build Teacher list
+ST-027 Teacher Query Features Search, pagination, and sorting
+ST-028 Teacher Form Build Teacher form
+ST-029 Teacher Validation Validate Teacher form
+ST-030 Teacher Creation Create Teacher
+ST-031 Teacher Management Details, edit, and lifecycle
+
+## Why Teacher comes after Student
+
+Student is our first real implementation.
+
+Teacher becomes the second implementation.
+
+For example:
+
+```text
+Student
+  └── sorting / pagination
+
+Teacher
+  └── sorting / pagination
+```
+
+Only after seeing the second implementation will we evaluate whether a
+shared abstraction is justified.
+
+> **Do not design the abstraction from imagination. Let the second
+> implementation prove it exists.**
+
+---
+
+# Phase 7 --- Shared Application Patterns
+
+After Student and Teacher provide real evidence of duplication, evaluate
+shared patterns.
+
+Potential areas:
+
+- Generic pagination
+- Generic sorting
+- Shared validation patterns
+- API error handling
+- Result/error patterns
+- Shared query infrastructure
+- Common form behaviors
+- Reusable data-fetching patterns
+
+Every abstraction must have:
+
+1.  A real repeated use case
+2.  A clear responsibility
+3.  A stable contract
+4.  A measurable reduction in duplication or complexity
+
+Avoid abstractions that only exist because two things look similar.
+
+---
+
+# Phase 8 --- Clean Architecture Evolution
+
+As the application grows, evolve the backend toward stronger
+architectural boundaries.
+
+Target conceptual structure:
+
+```text
+Presentation
+    ↓
+Application
+    ↓
+Domain
+    ↑
+Infrastructure
+```
+
+Potential responsibilities:
+
+## Domain
+
+- Entities
+- Business rules
+- Value objects where justified
+- Domain behavior
+
+## Application
+
+- Use cases
+- Application services
+- DTOs/contracts
+- Interfaces
+- Orchestration
+
+## Infrastructure
+
+- EF Core
+- Database access
+- External services
+- Email
+- File generation
+- Other infrastructure implementations
+
+## Presentation
+
+- Controllers
+- HTTP concerns
+- Request/response mapping
+
+Core principle:
+
+> Dependencies should point toward stable business/application
+> abstractions rather than toward infrastructure details.
+
+---
+
+# Phase 9 --- Microservices
+
+Once the modular architecture is mature enough, evolve CampusFlow toward
+independently deployable services.
+
+Potential services:
+
+```text
+                    ┌─────────────────┐
+                    │   API Gateway   │
+                    └────────┬────────┘
+                             │
+          ┌──────────────────┼──────────────────┐
+          ↓                  ↓                  ↓
+   Student Service     Teacher Service     Other Services
+```
+
+Potential concerns:
+
+- Service boundaries
+- Independent deployment
+- Database per service
+- Service-to-service communication
+- API contracts
+- Authentication and authorization
+- Distributed transactions
+- Event-driven communication where justified
+
+Microservices should be introduced because service boundaries provide
+real value, not simply because the project is called enterprise.
+
+---
+
+# Phase 10 --- Enterprise Production Concerns
+
+Introduce production-grade engineering progressively.
+
+## Testing
+
+- Unit testing
+- Integration testing
+- API testing
+- Component testing
+- End-to-end testing
+- Contract testing where useful
+
+## Observability
+
+- Structured logging
+- Metrics
+- Distributed tracing
+- Correlation IDs
+- Health checks
+- Diagnostics
+
+## Resilience
+
+- Timeouts
+- Retries
+- Circuit breakers
+- Idempotency
+- Graceful failure
+- Rate limiting
+
+## Security
+
+- Authentication
+- Authorization
+- Role/permission model
+- Input validation
+- Secure secrets management
+- API security
+- Audit logging
+
+## Performance
+
+- Database indexing
+- Query optimization
+- Caching
+- Pagination
+- Async processing
+- Performance measurement
+
+## DevOps
+
+- Docker
+- CI/CD
+- Environment configuration
+- Automated tests
+- Build pipelines
+- Deployment strategy
+- Infrastructure considerations
+
+---
+
+# Phase 11 --- Advanced System Design
+
+Use CampusFlow as the foundation for deeper system-design learning.
+
+Topics:
+
+- Scalability
+- Availability
+- Consistency
+- CAP considerations
+- Load balancing
+- Caching strategies
+- Messaging
+- Event-driven architecture
+- Queues
+- Pub/sub
+- Distributed locking
+- Idempotency
+- Data partitioning
+- Database scaling
+- Failure modes
+- Disaster recovery
+
+The goal is to understand not only **how to implement a feature**, but
+also:
+
+> Why this architecture is appropriate for the problem.
+
+---
+
+# Forward Deployed Engineer Learning Track
+
+CampusFlow will also be used to develop skills relevant to Forward
+Deployed Engineering.
+
+```text
+Software Engineering
+        ↓
+Architecture
+        ↓
+APIs & Integrations
+        ↓
+Databases
+        ↓
+Distributed Systems
+        ↓
+Cloud
+        ↓
+Observability
+        ↓
+Security
+        ↓
+Customer / Business Requirements
+        ↓
+Rapid Problem Solving
+        ↓
+System Design
+```
+
+Important skills to practice throughout the project:
+
+- Translate business requirements into technical designs
+- Ask the right architectural questions
+- Work with existing systems
+- Integrate external APIs
+- Debug production-like problems
+- Understand data flows
+- Make pragmatic trade-offs
+- Communicate technical decisions
+- Document architecture decisions
+- Deliver incrementally
+
+---
+
+# Architecture Principles
+
+These principles apply throughout CampusFlow.
+
+## 1. Clarity over cleverness
+
+Prefer readable, obvious code over sophisticated abstractions.
+
+## 2. SOLID
+
+Apply SOLID where it improves maintainability, not mechanically.
+
+## 3. Feature-first organization
+
+Organize business functionality by feature first and responsibility
+second.
+
+Example:
+
+```text
+features/
+└── students/
+    ├── api/
+    ├── components/
+    ├── hooks/
+    ├── mocks/
+    ├── pages/
+    ├── types/
+    └── validation/
+```
+
+## 4. Just-in-time infrastructure
+
+Do not create folders, interfaces, services, or frameworks without a
+real requirement.
+
+## 5. The second implementation earns the abstraction
+
+A repeated pattern should be observed in real code before becoming
+shared infrastructure.
+
+## 6. API contract first
+
+APIs should use explicit contracts and versioned routes such as:
+
+```text
+/api/v1/...
+```
+
+## 7. Documentation is part of Definition of Done
+
+Every meaningful story should include:
+
+- Source code
+- Pull request
+- Tests where applicable
+- Documentation update where applicable
+- Architecture Decision Record when an architectural decision is
+  introduced
+
+## 8. Git workflow
+
+Base branch:
+
+```text
+develop
+```
+
+Typical workflow:
+
+```text
+develop
+   ↓
+feature/ST-xxx-description
+   ↓
+Implementation
+   ↓
+Build / Test
+   ↓
+Commit
+   ↓
+Push
+   ↓
+Pull Request → develop
+   ↓
+Review
+   ↓
+Merge
+```
+
+---
+
+# Current Progress
+
+```text
+Phase 1 — Foundation
+████████████████████  Complete
+
+Phase 2 — Student List
+████████████████████  Complete
+
+Phase 3 — Forms Foundation
+████████████████████  Complete
+
+Phase 4 — Student Creation
+░░░░░░░░░░░░░░░░░░░░  Next
+
+Phase 5 — Student Management
+░░░░░░░░░░░░░░░░░░░░
+
+Phase 6 — Teacher Feature
+░░░░░░░░░░░░░░░░░░░░
+
+Phase 7 — Shared Patterns
+░░░░░░░░░░░░░░░░░░░░
+
+Phase 8 — Clean Architecture
+░░░░░░░░░░░░░░░░░░░░
+
+Phase 9 — Microservices
+░░░░░░░░░░░░░░░░░░░░
+
+Phase 10 — Production Engineering
+░░░░░░░░░░░░░░░░░░░░
+
+Phase 11 — Advanced System Design
+░░░░░░░░░░░░░░░░░░░░
+```
+
+---
+
+# Current Next Story
+
+## ST-015 --- Student Form Controls
+
+The immediate next story is:
+
+```text
+ST-015 — Student Form Controls
+```
+
+We will start from the existing Student Add form and introduce only the
+controls that the real use case requires:
+
+```text
+Gender       → Select / RadioGroup
+Class        → Select
+Date of Birth → DatePicker
+Address      → TextArea
+```
+
+The implementation will remain incremental and will be reviewed before
+moving to the next architectural concern.
+
+---
+
+# Guiding Rule
+
+> **Build the simplest solution that solves the current problem. When
+> the next real use case exposes duplication or a missing architectural
+> boundary, evolve the design based on evidence.**
