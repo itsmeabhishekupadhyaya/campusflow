@@ -3,42 +3,122 @@ import { Button, ButtonGroup, PageContainer, PageHeader } from '../../../../ui';
 import TextBox from '../../../../ui/components/Form/Controls/TextBox';
 import FormField from '../../../../ui/components/Form/Infrastructure/FormField';
 import styles from './StudentAddPage.module.css';
+import { useState } from 'react';
+import type { ChangeEvent } from 'react';
+import type { StudentFormModel } from '../../types/studentForm';
+import type { StudentFormErrors } from '../../validation/StudentFormErrors';
+import { validateStudentForm } from '../../validation/validateStudentForm';
 
 const StudentAddPage = () => {
+  const [student, setStudent] = useState<StudentFormModel>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobileNumber: '',
+    gender: '',
+    class: '',
+    dateOfBirth: '',
+    address: '',
+  });
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    setStudent((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+    console.log(student);
+  };
+  const [errors, setErrors] = useState<StudentFormErrors>({});
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const validationErrors = validateStudentForm(student);
+
+    setErrors(validationErrors);
+  };
   return (
     <PageContainer>
       <PageHeader title="Add Student" />
-      <form className={styles.form}>
-        <FormField label="First Name" required inputId="firstName">
-          <TextBox id="firstName" placeholder="Enter first name"></TextBox>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <FormField label="First Name" required inputId="firstName" error={errors.firstName}>
+          <TextBox
+            id="firstName"
+            name="firstName"
+            value={student.firstName}
+            onChange={handleChange}
+            placeholder="Enter first name"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Last Name" required inputId="lastName">
-          <TextBox id="lastName" placeholder="Enter last name"></TextBox>
+        <FormField label="Last Name" required inputId="lastName" error={errors.lastName}>
+          <TextBox
+            id="lastName"
+            name="lastName"
+            value={student.lastName}
+            onChange={handleChange}
+            placeholder="Enter last name"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Email" required inputId="email">
-          <TextBox id="email" placeholder="Enter email"></TextBox>
+        <FormField label="Email" required inputId="email" error={errors.email}>
+          <TextBox
+            id="email"
+            name="email"
+            value={student.email}
+            onChange={handleChange}
+            placeholder="Enter email"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Mobile" required inputId="mobileNumber">
-          <TextBox id="mobileNumber" placeholder="Enter mobile number"></TextBox>
+        <FormField label="Mobile" required inputId="mobileNumber" error={errors.mobileNumber}>
+          <TextBox
+            id="mobileNumber"
+            name="mobileNumber"
+            value={student.mobileNumber}
+            onChange={handleChange}
+            placeholder="Enter mobile number"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Gender" required inputId="gender">
-          <TextBox id="gender" placeholder="Enter gender"></TextBox>
+        <FormField label="Gender" required inputId="gender" error={errors.gender}>
+          <TextBox
+            id="gender"
+            name="gender"
+            value={student.gender}
+            onChange={handleChange}
+            placeholder="Enter gender"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Class" required inputId="class">
-          <TextBox id="class" placeholder="Enter class"></TextBox>
+        <FormField label="Class" required inputId="class" error={errors.class}>
+          <TextBox
+            id="class"
+            name="class"
+            value={student.class}
+            onChange={handleChange}
+            placeholder="Enter class"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Date of Birth" required inputId="dob">
-          <TextBox id="dob" placeholder="Enter date of birth"></TextBox>
+        <FormField label="Date of Birth" required inputId="dob" error={errors.dateOfBirth}>
+          <TextBox
+            id="dob"
+            name="dob"
+            value={student.dateOfBirth}
+            onChange={handleChange}
+            placeholder="Enter date of birth"
+          ></TextBox>
         </FormField>
 
-        <FormField label="Address" required inputId="address">
-          <TextBox id="address" placeholder="Enter address"></TextBox>
+        <FormField label="Address" required inputId="address" error={errors.address}>
+          <TextBox
+            id="address"
+            name="address"
+            value={student.address}
+            onChange={handleChange}
+            placeholder="Enter address"
+          ></TextBox>
         </FormField>
 
         <ButtonGroup className={styles.actions}>
