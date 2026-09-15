@@ -10,8 +10,14 @@ import type { ChangeEvent } from 'react';
 import type { StudentFormModel } from '../../types/studentForm';
 import type { StudentFormErrors } from '../../validation/StudentFormErrors';
 import { validateStudentForm } from '../../validation/validateStudentForm';
+import { useGetClasses } from '../../../class/hooks/useGetClasses';
+import { useCreateStudent } from '../../hooks/useCreateStudent';
 
 const StudentAddPage = () => {
+  const { classes, loading: classesLoading } = useGetClasses();
+
+  const { execute: createStudent, loading: creatingStudent } = useCreateStudent();
+
   const [student, setStudent] = useState<StudentFormModel>({
     firstName: '',
     lastName: '',
@@ -33,12 +39,20 @@ const StudentAddPage = () => {
   };
 
   const [errors, setErrors] = useState<StudentFormErrors>({});
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    if (creatingStudent) {
+      return;
+    }
     const validationErrors = validateStudentForm(student);
 
     setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    await createStudent(student);
   };
   return (
     <PageContainer>
@@ -94,13 +108,19 @@ const StudentAddPage = () => {
         </FormField>
 
         <FormField label="Class" required inputId="class" error={errors.class}>
-          <Select id="class" name="class" value={student.class} onChange={handleChange}>
+          <Select
+            id="class"
+            name="class"
+            value={student.class}
+            onChange={handleChange}
+            disabled={classesLoading}
+          >
             <option value="">Select class</option>
-            <option value="1">Class 1</option>
-            <option value="2">Class 2</option>
-            <option value="3">Class 3</option>
-            <option value="4">Class 4</option>
-            <option value="5">Class 5</option>
+            {classes?.items.map((classItem) => (
+              <option key={classItem.id} value={classItem.id}>
+                {classItem.name}
+              </option>
+            ))}
           </Select>
         </FormField>
 
@@ -124,8 +144,14 @@ const StudentAddPage = () => {
         </FormField>
 
         <ButtonGroup className={styles.actions}>
-          <Button startIcon={Plus} type="submit" size="sm" variant="primary">
-            Save
+          <Button
+            startIcon={Plus}
+            type="submit"
+            size="sm"
+            variant="primary"
+            disabled={creatingStudent}
+          >
+            {creatingStudent ? 'Saving...' : 'Save'}
           </Button>
           <Button startIcon={X} type="button" size="sm" variant="secondary">
             Cancel
